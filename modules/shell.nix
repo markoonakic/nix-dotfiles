@@ -14,11 +14,6 @@
       STARSHIP_CONFIG = "${config.home.homeDirectory}/.config/starship/starship.toml";
     };
 
-    # Shell options
-    initExtraFirst = ''
-      # Vi mode timeout
-      export KEYTIMEOUT=1
-    '';
 
     # Oh My Zsh configuration
     oh-my-zsh = {
@@ -104,8 +99,11 @@
       k = "kubectl";
     };
 
-    # Additional initialization (mise is replaced by Nix, but keep structure)
-    initExtra = ''
+    # Additional initialization
+    initContent = lib.mkBefore ''
+      # Vi mode timeout
+      export KEYTIMEOUT=1
+    '' + ''
       # Enable completion
       autoload -Uz compinit && compinit
     '';
