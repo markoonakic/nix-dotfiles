@@ -1,0 +1,19 @@
+# Nix build artifacts
+result
+result-*
+
+# Direnv
+.direnv/
+.envrc
+
+# Home Manager generations
+.hm-generations
+
+# Editor files
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Lock files (commit flake.lock for reproducibility)
+# flake.lock is intentionally tracked

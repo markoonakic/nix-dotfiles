@@ -1,0 +1,34 @@
+[battery]
+full_symbol = "• "
+charging_symbol = "⇡ "
+discharging_symbol = "⇣ "
+unknown_symbol = "❓ "
+empty_symbol = "❗ "
+
+[erlang]
+symbol = "ⓔ "
+
+[fortran]
+symbol = "F "
+
+[nodejs]
+symbol = "[⬢](bold green) "
+
+[pulumi]
+symbol = "🧊 "
+
+[typst]
+symbol = "t "
+
+[directory]
+style = "blue"
+
+[container]
+format = "[$symbol $name]($style) "
+symbol = " "
+style = "yellow"
+
+[character]
+success_symbol = "[❯](gray)"
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[❮](gray)"
