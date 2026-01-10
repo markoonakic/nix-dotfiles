@@ -100,10 +100,10 @@
     };
 
     # Additional initialization
-    initContent = lib.mkBefore ''
+    initContent = ''
       # Vi mode timeout
       export KEYTIMEOUT=1
-    '' + ''
+
       # Enable completion
       autoload -Uz compinit && compinit
     '';
