@@ -23,14 +23,29 @@
       modules = [ ./home.nix ];
     };
 
-    # Devcontainer configuration (dynamic - supports both x86_64-linux and aarch64-linux)
-    homeConfigurations."marko@devcontainer" = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${builtins.currentSystem};
+    # Devcontainer configuration for aarch64-linux (M1/M2 Macs)
+    homeConfigurations."marko@devcontainer-aarch64" = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.aarch64-linux;
       modules = [
         ./home.nix
         {
           # Minimal config for containers - disable heavy features
-          home.packages = with nixpkgs.legacyPackages.${builtins.currentSystem}; [
+          home.packages = with nixpkgs.legacyPackages.aarch64-linux; [
+            git
+            # Add only essential tools for containers
+          ];
+        }
+      ];
+    };
+
+    # Devcontainer configuration for x86_64-linux (Intel Linux)
+    homeConfigurations."marko@devcontainer-x86_64" = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      modules = [
+        ./home.nix
+        {
+          # Minimal config for containers - disable heavy features
+          home.packages = with nixpkgs.legacyPackages.x86_64-linux; [
             git
             # Add only essential tools for containers
           ];
