@@ -11,7 +11,7 @@
   # Clone funky-nvim on activation
   home.activation.cloneNvimConfig = lib.hm.dag.entryAfter ["writeBoundary"] ''
     NVIM_DIR="${config.home.homeDirectory}/.config/nvim"
-    REPO="git@github.com:markoonakic/funky-nvim.git"
+    REPO="https://github.com/markoonakic/funky-nvim.git"
 
     if [ ! -d "$NVIM_DIR/.git" ]; then
       echo "Cloning funky-nvim configuration..."
