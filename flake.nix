@@ -23,14 +23,14 @@
       modules = [ ./home.nix ];
     };
 
-    # Devcontainer configuration (minimal, used by nix-dev-init containers)
+    # Devcontainer configuration (dynamic - supports both x86_64-linux and aarch64-linux)
     homeConfigurations."marko@devcontainer" = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      pkgs = nixpkgs.legacyPackages.${builtins.currentSystem};
       modules = [
         ./home.nix
         {
           # Minimal config for containers - disable heavy features
-          home.packages = with nixpkgs.legacyPackages.x86_64-linux; [
+          home.packages = with nixpkgs.legacyPackages.${builtins.currentSystem}; [
             git
             # Add only essential tools for containers
           ];
