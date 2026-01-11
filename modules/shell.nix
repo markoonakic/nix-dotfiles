@@ -100,7 +100,12 @@
     };
 
     # Additional initialization
-    initContent = ''
+    initExtra = ''
+      # Nix environment (critical for containers and non-NixOS systems)
+      if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
+        . ~/.nix-profile/etc/profile.d/nix.sh
+      fi
+
       # Vi mode timeout
       export KEYTIMEOUT=1
 
