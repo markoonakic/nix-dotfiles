@@ -106,6 +106,11 @@
         . ~/.nix-profile/etc/profile.d/nix.sh
       fi
 
+      # Auto-cd to workspace in containers (if starting in home)
+      if [ -d /workspace ] && [ "$PWD" = "$HOME" ]; then
+        cd /workspace
+      fi
+
       # Vi mode timeout
       export KEYTIMEOUT=1
 
