@@ -6,6 +6,11 @@
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
+
+    # Dependencies for Mason (prettier, eslint, formatters, etc.)
+    extraPackages = with pkgs; [
+      nodejs_latest  # Required for npm-based Mason packages
+    ];
   };
 
   # Clone funky-nvim on activation

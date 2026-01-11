@@ -18,26 +18,17 @@
     ./modules/neovim.nix
   ];
 
-  # Global packages (replaces mise global config)
+  # Universal CLI tools (language runtimes are per-project via flakes)
   home.packages = with pkgs; [
-    # Development
-    nodejs_latest
-    python3
+    # Version control
+    git
 
     # Modern CLI tools
-    btop
     bat
     eza
     ripgrep
     fd
     fzf
     zoxide
-
-    # Version control
-    git
-    gh
-
-    # Kubernetes
-    kubectl
   ];
 }
